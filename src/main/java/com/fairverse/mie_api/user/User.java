@@ -3,25 +3,22 @@ package com.fairverse.mie_api.user;
 public class User {
     private Long id;
     private String mail;
-    private String name;
-    private String surname;
+    private String username;
     private String password;
 
     public User() {
     }
 
-    public User(Long id, String mail, String name, String surname, String password) {
+    public User(Long id, String mail, String username, String password) {
         this.id = id;
         this.mail = mail;
-        this.name = name;
-        this.surname = surname;
+        this.username = username;
         this.password = password;
     }
 
-    public User(String mail, String name, String surname, String password) {
+    public User(String mail, String username, String password) {
         this.mail = mail;
-        this.name = name;
-        this.surname = surname;
+        this.username = username;
         this.password = password;
     }
 
@@ -41,20 +38,12 @@ public class User {
         this.mail = mail;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -63,16 +52,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", mail='" + mail + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
