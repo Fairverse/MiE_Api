@@ -1,22 +1,36 @@
-package com.fairverse.mie_api.user;
+package com.fairverse.mie_api.user1;
 
-public class User {
+import javax.persistence.*;
+
+@Entity
+@Table
+public class User1 {
+    @Id
+    @SequenceGenerator(
+            name = "user1_sequence",
+            sequenceName = "user1_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user1_sequence"
+    )
     private Long id;
     private String mail;
     private String username;
     private String password;
 
-    public User() {
+    public User1() {
     }
 
-    public User(Long id, String mail, String username, String password) {
+    public User1(Long id, String mail, String username, String password) {
         this.id = id;
         this.mail = mail;
         this.username = username;
         this.password = password;
     }
 
-    public User(String mail, String username, String password) {
+    public User1(String mail, String username, String password) {
         this.mail = mail;
         this.username = username;
         this.password = password;
@@ -52,5 +66,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", mail='" + mail + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
