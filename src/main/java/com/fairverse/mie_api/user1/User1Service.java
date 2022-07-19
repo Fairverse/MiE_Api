@@ -48,7 +48,10 @@ public class User1Service {
         if (user1Optional.isPresent()) {
             throw new IllegalStateException("Bu mail daha önce alınmış!");
         }
-
+        user1Optional = user1Repository.findUser1ByUsername(user1.getUsername());
+        if (user1Optional.isPresent()) {
+            throw new IllegalStateException("Bu username daha önce alınmış!");
+        }
         user1.setPassword(hashPassword(user1.getPassword()));
         user1Repository.save(user1);
     }
