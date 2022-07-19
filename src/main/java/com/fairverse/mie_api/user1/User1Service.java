@@ -43,7 +43,8 @@ public class User1Service {
         }
     }
 
-    public void addNewUser1(User1 user1) {
+    public void addNewUser1(String user1Str) {
+        User1 user1 = convertStrToUser1(user1Str);
         Optional<User1> user1Optional = user1Repository.findUser1ByMail(user1.getMail());
         if (user1Optional.isPresent()) {
             throw new IllegalStateException("Bu mail daha önce alınmış!");
@@ -54,6 +55,11 @@ public class User1Service {
         }
         user1.setPassword(hashPassword(user1.getPassword()));
         user1Repository.save(user1);
+    }
+
+    private User1 convertStrToUser1(String user1Str) {
+        String[] user1Split = user1Str.split("é");
+        return new User1(user1Split[1], user1Split[0], user1Split[2]);
     }
 
     private String hashPassword(String password) {

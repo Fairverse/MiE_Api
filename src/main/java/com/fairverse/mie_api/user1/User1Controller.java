@@ -27,8 +27,8 @@ public class User1Controller {
         return user1Service.getUser(body);
     }
 
-    @PostMapping
-    public void registerNewUser1(@RequestBody User1 user1) {
-        user1Service.addNewUser1(user1);
+    @PutMapping
+    public void registerNewUser1(@RequestBody String user1Str) {
+        user1Service.addNewUser1(user1Str);
     }
 }
