@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,25 @@ public class User1Service {
 
     public List<User1> getUsers() {
         return user1Repository.findAll();
+    }
+
+    public Map<String, Object> getUser(Map<String, String> body) {
+        if (body.containsKey("mail") && body.containsKey("password")) {
+            Optional<User1> user1Optional = user1Repository.findUser1ByMail(body.get("mail"));
+            if (user1Optional.isPresent()) {
+                User1 user1 = user1Optional.get();
+                String hashedPassword = hashPassword(body.get("password"));
+                if (user1.getPassword().equals(hashedPassword)) {
+                    return user1.toMap();
+                } else {
+                    throw new IllegalStateException("Parola hatalı!");
+                }
+            } else {
+                throw new IllegalStateException("Bu email adresi ile kullanıcı bulunamadı!");
+            }
+        } else {
+            throw new IllegalStateException("RequestBody missing fields!");
+        }
     }
 
     public void addNewUser1(User1 user1) {

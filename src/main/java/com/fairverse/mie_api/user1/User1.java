@@ -1,6 +1,8 @@
 package com.fairverse.mie_api.user1;
 
 import javax.persistence.*;
+import java.util.HashMap;
+import java.util.Map;
 
 @Entity
 @Table
@@ -66,6 +68,14 @@ public class User1 {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("id", id);
+        map.put("mail", mail);
+        map.put("username", username);
+        return map;
     }
 
     @Override
