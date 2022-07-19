@@ -10,14 +10,9 @@ import java.util.List;
 public class User1Config {
 
     @Bean
-    CommandLineRunner commandLineRunner(User1Repository user1Repository) {
+    CommandLineRunner commandLineRunner(User1Service user1Service) {
         return args -> {
-            User1 hakkican = new User1("hkcblc@gmail.com", "Mr. Bülüç", "123456");
-            User1 reyhan = new User1("reyhan@gmail.com", "MissReyyo", "123456789");
 
-            user1Repository.saveAll(
-                    List.of(hakkican, reyhan)
-            );
         };
     }
 }
