@@ -78,6 +78,9 @@ public class User1 {
         return map;
     }
 
+    public String toStringC() {
+        return username + "é" + mail + "é" + id;
+    }
     @Override
     public String toString() {
         return "User{" +

@@ -23,7 +23,7 @@ public class User1Controller {
 
     @GetMapping
     @ResponseBody
-    public Map<String, Object> getUser(@RequestParam Map<String, String> body) {
+    public String getUser(@RequestParam Map<String, String> body) {
         return user1Service.getUser(body);
     }
 

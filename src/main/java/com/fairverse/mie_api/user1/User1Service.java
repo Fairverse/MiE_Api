@@ -24,14 +24,14 @@ public class User1Service {
         return user1Repository.findAll();
     }
 
-    public Map<String, Object> getUser(Map<String, String> body) {
+    public String getUser(Map<String, String> body) {
         if (body.containsKey("mail") && body.containsKey("password")) {
             Optional<User1> user1Optional = user1Repository.findUser1ByMail(body.get("mail"));
             if (user1Optional.isPresent()) {
                 User1 user1 = user1Optional.get();
                 String hashedPassword = hashPassword(body.get("password"));
                 if (user1.getPassword().equals(hashedPassword)) {
-                    return user1.toMap();
+                    return user1.toStringC();
                 } else {
                     throw new IllegalStateException("Parola hatalı!");
                 }
