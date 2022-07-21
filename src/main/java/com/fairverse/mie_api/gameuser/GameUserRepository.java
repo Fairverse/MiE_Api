@@ -9,8 +9,8 @@ import java.util.Optional;
 @Repository
 public interface GameUserRepository extends JpaRepository<GameUser, Long> {
 
-    @Query("Select g From GameUser g where g.email =?1")
-    Optional<GameUser> findGameUserByMail(String email);
+    @Query("Select g From GameUser g where g.email = ?1")
+    Optional<GameUser> findGameUserByEmail(String email);
 
     @Query("Select g FROM GameUser g WHERE g.username=?1")
     Optional<GameUser> findGameUserByUsername(String username);
