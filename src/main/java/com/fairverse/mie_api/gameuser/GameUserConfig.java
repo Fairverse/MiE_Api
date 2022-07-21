@@ -1,16 +1,14 @@
-package com.fairverse.mie_api.user1;
+package com.fairverse.mie_api.gameuser;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-
 @Configuration
-public class User1Config {
+public class GameUserConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(User1Service user1Service) {
+    CommandLineRunner commandLineRunner(GameUserService gameUserService) {
         return args -> {
 
         };
