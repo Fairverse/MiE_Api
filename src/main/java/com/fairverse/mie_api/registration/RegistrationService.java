@@ -11,15 +11,10 @@ import java.util.Map;
 @Service
 @AllArgsConstructor
 public class RegistrationService {
-
-    private final EmailValidator emailValidator;
     private final GameUserService gameUserService;
 
     public String register(String gameUserStr) {
         GameUser gameUser = convertStrToGameUser(gameUserStr);
-        if (!emailValidator.test(gameUser.getEmail())) {
-            return "Email geçerli değil!";
-        }
         return gameUserService.register(gameUser);
     }
 
