@@ -20,10 +20,4 @@ public class GameUserController {
     public List<GameUser> getUsers() {
         return gameUserService.getUsers();
     }
-
-    @GetMapping
-    @ResponseBody
-    public String getUser(@RequestParam Map<String, String> body) {
-        return gameUserService.getUser(body);
-    }
 }
