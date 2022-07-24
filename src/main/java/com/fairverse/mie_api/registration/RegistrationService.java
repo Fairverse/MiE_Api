@@ -6,6 +6,7 @@ import com.fairverse.mie_api.gameuser.GameUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -29,5 +30,9 @@ public class RegistrationService {
         } else {
             throw new IllegalStateException("RequestBody missing fields!");
         }
+    }
+
+    public List<GameUser> getAllUser() {
+        return gameUserService.getUsers();
     }
 }
